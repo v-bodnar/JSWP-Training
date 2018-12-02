@@ -1,11 +1,12 @@
 import { DOMPreset } from '../dom-api/make-dom';
 
-const { div } = DOMPreset;
+const { div, h5, h6, p, a } = DOMPreset;
 
 /**
  * Zadanie:
  * Zrób komponent "Card" (uzupełnij buildCard) według schematu HTML poniżej:
  * */
+
 /*
 <div class="card" style="width: 18rem;">
   <div class="card-body">
@@ -22,6 +23,16 @@ const { div } = DOMPreset;
  * Reusable Card BUILDER
  * Używająć wcześniej przygotowanych metod wytwórczych, budujemy teraz cały komponent
  * */
-export function cardElement () {
-  return div();
+export function cardElement ({ cardTitle, cardSubtitle, clickCallback }) {
+  const cardLink = a('#', 'Card link', 'card-link');
+  cardLink.addEventListener('click', clickCallback)
+  return div([
+    div([
+      h5(cardTitle, 'card-title'),
+      h6(cardSubtitle, 'card-subtitle.mb-2.text-muted'),
+      p('Some example', 'card-text'),
+      cardLink,
+      a('#', 'Another link', 'card-link')
+    ], 'card-body')
+  ])
 }

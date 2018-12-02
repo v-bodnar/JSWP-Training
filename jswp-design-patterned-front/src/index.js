@@ -1,7 +1,8 @@
 import { $ } from './dom-api/dom-helpers';
 import './styles.css';
-import { DOMPreset } from './dom-api/make-dom';
-import { observerView } from './main/observer/observer-view';
+import { DOMPreset } from './dom-api/make-dom'
+import { cardElement } from './main/card-element';
+// import { }
 
 const { b, div } = DOMPreset;
 (function runDefault () {
@@ -10,7 +11,11 @@ const { b, div } = DOMPreset;
     div([
       b('Trzeba zrobić card-element !')
     ]),
-    observerView()
+    cardElement({
+      cardTitle: 'title',
+      subTitle: 'subtitle',
+      clickCallback: (ev) => { alert('asdg') }
+    })
   ], 'container.mt-5');
   rootDOM.appendChild(rootDiv);
 })();
