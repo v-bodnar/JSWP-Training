@@ -16,6 +16,10 @@
 */
 
 // Nowe sposoby deklarowania zmiennych: let, const
+
+const $ = require('jquery')
+
+console.log($)
 let x = 1;
 x++;
 console.log('My ex is:', x);
@@ -23,6 +27,9 @@ console.log('My ex is:', x);
 const y = 100;
 console.log('Hello I\'m', y, 'I cannot be reassigned');
 
+module.export={
+    x: x
+}
 
 // Zadanie:
 
